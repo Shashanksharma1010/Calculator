@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: orange;
+        }
+
+        .calculator {
+            width: 375px; 
+            margin: 3% auto; 
+            padding:1rem; 
+            background-color: black;
+            border-radius: 10px; 
+            color:white;
+        }
+        .calculator__keys { 
+            display: grid; 
+            grid-template-columns: auto auto auto auto;
+            grid-gap: 10px;
+         }
+
+         button {
+            font-size: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+         }
+
+         button:hover { 
+            filter: brightness(125%);
+         }
+
+        .key--number, .key--operator, .clear, .decimal, .key--equal, .modulus{
+            padding: 1.2rem;
+            border: 1px solid black;
+            border-radius: 100%;
+            width:75px;
+         }
+
+        .key--number, .key--zero, .decimal {
+            background-color: rgb(67, 67, 67);
+            color: white;
+         } 
+
+        .key--operator, .key--equal {
+            background-color: orange;
+            color: white;
+        }
+
+        .divide {
+            background-color: white;
+            color: orange;
+        }
+
+         .clear, .modulus{
+            background-color: rgb(186, 186, 186);
+         }
+
+        .key--zero, .clear {
+            grid-column-start:1;
+            grid-column-end: 3;
+            border: 1px solid black;
+            border-radius: 50px;
+            width:100%;
+        }
+
+        .calculator__display {
+            /* height: 20vh; */
+            text-align: right;
+            font-size: 60px;
+            padding:2rem;
+        }
+    </style>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <div class="calculator">
+        <div class="calculator__display">0</div>
+        <div class="calculator__keys"> 
+            <button class="clear" data-action="clear">AC</button>
+            <button class="modulus" data-action="modulus">%</button>
+            <button class="key--operator divide" data-action="divide">&#247;</button>
+            <button class="key--number">7</button>
+            <button class="key--number">8</button>
+            <button class="key--number">9</button>
+            <button class="key--operator" data-action="multiply">&times;</button>
+            <button class="key--number">4</button>
+            <button class="key--number">5</button>
+            <button class="key--number">6</button>
+            <button class="key--operator" data-action="subtract">-</button>
+            <button class="key--number">1</button>
+            <button class="key--number">2</button>
+            <button class="key--number">3</button>
+            <button class="key--operator" data-action="add">+</button>
+            <button class="key--zero">0</button>
+            <button class="decimal" data-action="decimal">.</button>
+            <button class="key--equal" data-action="calculate">=</button>
+        </div>
+    </div>
+    <script>
+        const calculator = document.querySelector('.calculator');
+        const keys =  calculator.querySelector('.calculator__keys')
+        const key = e.target 
+        const action = key.dataset.action
+
+        if (!action) {
+            console.log('number key!')
+        }
+
+        keys.addEventListener('click', e => {
+            if (e.target.matches('button')) {
+                // Do something
+            }
+        })
+    </script>
+</body>
+</html>
